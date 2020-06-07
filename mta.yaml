@@ -1,0 +1,17 @@
+ID: wfdemocf
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: wfdemo
+    type: com.sap.application.content
+    path: wfdemo
+    requires:
+      - name: workflow_wfdemocf
+        parameters:
+          content-target: true
+resources:
+  - name: workflow_wfdemocf
+    parameters:
+      service-plan: standard
+      service: workflow
+    type: org.cloudfoundry.managed-service
