@@ -1,0 +1,387 @@
+{
+    "id": "startform",
+    "schemaVersion": "1.0.0",
+    "name": "startForm",
+    "revision": "1.0",
+    "type": "start",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "_",
+            "type": "section",
+            "title": "採購單表頭 Header",
+            "content": [
+                {
+                    "id": "_",
+                    "type": "subsection",
+                    "title": "基本資料",
+                    "content": [
+                        {
+                            "id": "_",
+                            "type": "string",
+                            "label": "公司代碼",
+                            "readOnly": false,
+                            "value": "${context.po.basic.CompanyCode}",
+                            "control": {
+                                "type": "RadioButtons",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "1710",
+                                            "displayValue": "1710 - US"
+                                        },
+                                        {
+                                            "value": "1010",
+                                            "displayValue": "1010 - TW"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "1710",
+                                    "1010"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__1",
+                            "type": "string",
+                            "label": "採購組織",
+                            "readOnly": false,
+                            "value": "${context.po.basic.PurchasingOrganization}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "1710",
+                                            "displayValue": "1710 - POrg US"
+                                        },
+                                        {
+                                            "value": "1010",
+                                            "displayValue": "1010 - POrg TW"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "1710",
+                                    "1010"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__2",
+                            "type": "string",
+                            "label": "採購群組",
+                            "readOnly": false,
+                            "value": "${context.po.basic.PurchasingGroup}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "002",
+                                            "displayValue": "Group 002"
+                                        },
+                                        {
+                                            "value": "001",
+                                            "displayValue": "Group 001"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "002",
+                                    "001"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__3",
+                            "type": "string",
+                            "label": "採購單類型",
+                            "readOnly": false,
+                            "value": "${context.po.basic.POType}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "NB",
+                                            "displayValue": "標準訂單"
+                                        },
+                                        {
+                                            "value": "AB",
+                                            "displayValue": "制式訂單"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "NB",
+                                    "AB"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "__2",
+                    "type": "subsection",
+                    "title": "供應商資料",
+                    "content": [
+                        {
+                            "id": "supplier",
+                            "type": "string",
+                            "label": "供應商",
+                            "readOnly": false,
+                            "value": "${context.po.supplier.Supplier}",
+                            "control": {
+                                "type": "RadioButtons",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "USSU-VSF04",
+                                            "displayValue": "USSU-VSF04 - 供應商 04"
+                                        },
+                                        {
+                                            "value": "USSU-VSF03",
+                                            "displayValue": "USSU-VSF04 - 供應商 03"
+                                        },
+                                        {
+                                            "value": "USSU-VSF02",
+                                            "displayValue": "USSU-VSF04 - 供應商 02"
+                                        },
+                                        {
+                                            "value": "USSU-VSF01",
+                                            "displayValue": "USSU-VSF04 - 供應商 01"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "USSU-VSF04",
+                                    "USSU-VSF03",
+                                    "USSU-VSF02",
+                                    "USSU-VSF01"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "__1",
+                    "type": "subsection",
+                    "title": "付款資料",
+                    "content": [
+                        {
+                            "id": "_",
+                            "type": "collection",
+                            "title": "付款條件",
+                            "addEnabled": true,
+                            "deleteEnabled": true,
+                            "value": "${context.po.terms.Terms}",
+                            "content": [
+                                {
+                                    "id": "_",
+                                    "type": "string",
+                                    "label": "付款條件",
+                                    "readOnly": false,
+                                    "value": "${context.po.terms.terms}",
+                                    "constraints": {
+                                        "required": true
+                                    }
+                                },
+                                {
+                                    "id": "__1",
+                                    "type": "string",
+                                    "label": "幣別",
+                                    "readOnly": false,
+                                    "value": "${context.po.terms.Currency}",
+                                    "control": {
+                                        "type": "Dropdown",
+                                        "properties": {
+                                            "items": [
+                                                {
+                                                    "value": "USD",
+                                                    "displayValue": "USD - 美元"
+                                                },
+                                                {
+                                                    "value": "TWD",
+                                                    "displayValue": "TWD - 台幣"
+                                                },
+                                                {
+                                                    "value": "JPY",
+                                                    "displayValue": "JPY - 日幣"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "constraints": {
+                                        "required": true,
+                                        "enum": [
+                                            "USD",
+                                            "TWD",
+                                            "JPY"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "__1",
+            "type": "section",
+            "title": "採購單項目 Items",
+            "content": [
+                {
+                    "id": "_",
+                    "type": "subsection",
+                    "title": "Item 10",
+                    "content": [
+                        {
+                            "id": "_",
+                            "type": "string",
+                            "label": "物料號碼",
+                            "readOnly": false,
+                            "value": "${context.po.Item.Material}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "1710",
+                                            "displayValue": "1710 - US"
+                                        },
+                                        {
+                                            "value": "1010",
+                                            "displayValue": "1010 - TW"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "1710",
+                                    "1010"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__1",
+                            "type": "string",
+                            "label": "工廠",
+                            "readOnly": false,
+                            "value": "${context.po.Item.Plant}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "1710",
+                                            "displayValue": "1710 - POrg US"
+                                        },
+                                        {
+                                            "value": "1010",
+                                            "displayValue": "1010 - POrg TW"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "1710",
+                                    "1010"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__2",
+                            "type": "integer",
+                            "label": "數量",
+                            "placeholder": "請輸入要採購的數量",
+                            "readOnly": false,
+                            "value": "${context.po.Item.OrderQuantity}",
+                            "constraints": {
+                                "required": true
+                            }
+                        },
+                        {
+                            "id": "__5",
+                            "type": "string",
+                            "label": "單位",
+                            "readOnly": false,
+                            "value": "${context.po.Item.OrderPriceUnit}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "__3",
+                            "type": "string",
+                            "label": "幣別",
+                            "readOnly": false,
+                            "value": "${context.po.Item.DocumentCurrency}",
+                            "control": {
+                                "type": "Dropdown",
+                                "properties": {
+                                    "items": [
+                                        {
+                                            "value": "NB",
+                                            "displayValue": "標準訂單"
+                                        },
+                                        {
+                                            "value": "AB",
+                                            "displayValue": "制式訂單"
+                                        }
+                                    ]
+                                }
+                            },
+                            "constraints": {
+                                "required": true,
+                                "enum": [
+                                    "NB",
+                                    "AB"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "__4",
+                            "type": "string",
+                            "label": "單價",
+                            "readOnly": false,
+                            "value": "${context.po.Item.NetPriceQuantity}",
+                            "constraints": {
+                                "required": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "id": "action1",
+            "text": "送出",
+            "workflowDefinitionId": "poworkflow",
+            "workflowPath": "/wfdemocf/wfdemo/workflows/poworkflow.workflow"
+        }
+    ]
+}
